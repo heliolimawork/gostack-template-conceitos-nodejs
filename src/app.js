@@ -18,8 +18,8 @@ app.get("/repositories", (request, response) => {
 
 app.post("/repositories", (request, response) => {
   
-  const {url, title, techs} = request.body;
-    const repo = { id: uuid(), url, title, techs, likes: 0};
+  const {id, url, title, techs} = request.body;
+    const repo = { id: id != null ? id : uuid(), url, title, techs, likes: 0};
     repositories.push(repo);
     return response.json(repo);
 
